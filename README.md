@@ -62,6 +62,11 @@ La aplicación abre automáticamente en `http://localhost:3000`
 | Sin stock | 0 unidades |
 
 ---
+## Foto de prueba
+
+<img width="1911" height="943" alt="image" src="https://github.com/user-attachments/assets/f5ca10c6-d2cf-4758-a3e4-c79482956b79" />
+
+---
 
 ## Notas
 
