@@ -1,70 +1,67 @@
-# Getting Started with Create React App
+# Inventario de Productos — SPA con React
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Aplicación web de una sola página (SPA) para gestionar un inventario de productos con React 18 y localStorage.
 
-## Available Scripts
+## Instalación
 
-In the project directory, you can run:
+### Requisitos
 
-### `npm start`
+- Node.js v14 o superior → [https://nodejs.org](https://nodejs.org/)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### Pasos
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+```bash
+# 1. Clonar el repositorio
+git clone https://github.com/soulwithragex/inventario-spa.git
 
-### `npm test`
+# 2. Entrar a la carpeta
+cd inventario-spa
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+# 3. Instalar dependencias
+npm install
 
-### `npm run build`
+# 4. Iniciar la aplicación
+npm start
+```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+La aplicación abre automáticamente en `http://localhost:3000`
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Cómo usar la aplicación
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Agregar un producto
 
-### `npm run eject`
+1. Haz clic en el botón **Nuevo producto**
+2. Completa el formulario: nombre, categoría, precio y stock
+3. Haz clic en **Guardar**
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### Editar un producto
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+1. Haz clic en el botón **✏️** en la fila del producto
+2. Modifica los campos que necesites
+3. Haz clic en **Guardar**
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+### Eliminar un producto
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+1. Haz clic en el botón **🗑** en la fila del producto
+2. Confirma la eliminación
 
-## Learn More
+### Buscar un producto
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+- Escribe en la barra de búsqueda para filtrar por nombre en tiempo real
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### Filtrar por categoría
 
-### Code Splitting
+- Usa el selector desplegable junto a la barra de búsqueda
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+## Estados de stock
 
-### Analyzing the Bundle Size
+| Estado | Condición |
+|--------|-----------|
+| Disponible | 6 o más unidades |
+| Stock bajo | Entre 1 y 5 unidades |
+| Sin stock | 0 unidades |
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+## Notas
 
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- Los datos se guardan automáticamente en el navegador (localStorage), por lo que se conservan al recargar la página.
+- No requiere conexión a internet ni base de datos.

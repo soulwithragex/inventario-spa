@@ -1,13 +1,318 @@
-body {
+/* ── Reset y base ── */
+*, *::before, *::after {
+  box-sizing: border-box;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  padding: 0;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+body {
+  font-family: system-ui, -apple-system, sans-serif;
+  background: #f5f4f0;
+  color: #111;
+  min-height: 100vh;
+}
+
+input,
+select,
+textarea,
+button {
+  font-family: inherit;
+  font-size: 14px;
+}
+
+/* ── Layout principal ── */
+.app {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 2rem 1.5rem 4rem;
+}
+
+/* ── Header ── */
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.5rem;
+}
+
+.header h1 {
+  font-size: 22px;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* ── Tarjetas de métricas ── */
+.stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 10px;
+  margin-bottom: 1.5rem;
+}
+
+.stat-card {
+  background: #e8e7e2;
+  border-radius: 8px;
+  padding: 14px 16px;
+}
+
+.stat-label {
+  font-size: 12px;
+  color: #666;
+  margin-bottom: 4px;
+}
+
+.stat-value {
+  font-size: 22px;
+  font-weight: 500;
+}
+
+.stat-value.danger {
+  color: #A32D2D;
+}
+
+/* ── Barra de herramientas ── */
+.toolbar {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 1.25rem;
+  flex-wrap: wrap;
+}
+
+.toolbar input[type="text"] {
+  flex: 1;
+  min-width: 160px;
+  padding: 8px 12px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background: #fff;
+  color: #111;
+  outline: none;
+}
+
+.toolbar input[type="text"]:focus {
+  border-color: #185FA5;
+}
+
+.toolbar select {
+  padding: 8px 12px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background: #fff;
+  color: #111;
+  outline: none;
+  cursor: pointer;
+}
+
+/* ── Botones ── */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 14px;
+  border-radius: 8px;
+  font-size: 14px;
+  border: 1px solid #bbb;
+  background: #fff;
+  color: #111;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+.btn:hover {
+  background: #f0f0f0;
+}
+
+.btn-primary {
+  background: #185FA5;
+  color: #fff;
+  border-color: #185FA5;
+}
+
+.btn-primary:hover {
+  background: #0C447C;
+  border-color: #0C447C;
+}
+
+.btn-danger {
+  background: #A32D2D;
+  color: #fff;
+  border-color: #A32D2D;
+  padding: 6px 10px;
+  font-size: 13px;
+}
+
+.btn-danger:hover {
+  background: #791F1F;
+}
+
+.btn-edit {
+  background: #fff;
+  border: 1px solid #bbb;
+  color: #555;
+  padding: 6px 10px;
+  font-size: 13px;
+}
+
+.btn-edit:hover {
+  background: #f0f0f0;
+}
+
+/* ── Tabla ── */
+.table-wrap {
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+
+thead tr {
+  background: #f5f5f5;
+}
+
+th {
+  padding: 10px 14px;
+  text-align: left;
+  font-weight: 500;
+  font-size: 13px;
+  color: #666;
+  border-bottom: 1px solid #e5e5e5;
+}
+
+td {
+  padding: 11px 14px;
+  border-bottom: 1px solid #f0f0f0;
+  vertical-align: middle;
+}
+
+tr:last-child td {
+  border-bottom: none;
+}
+
+tr:hover td {
+  background: #fafafa;
+}
+
+.col-num {
+  color: #888;
+  font-size: 13px;
+}
+
+.col-nombre {
+  font-weight: 500;
+}
+
+.col-categoria {
+  color: #666;
+}
+
+.actions-cell {
+  display: flex;
+  gap: 6px;
+}
+
+/* ── Badges de estado ── */
+.badge {
+  display: inline-block;
+  padding: 3px 10px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.badge-ok  { background: #EAF3DE; color: #3B6D11; }
+.badge-low { background: #FAEEDA; color: #854F0B; }
+.badge-out { background: #FCEBEB; color: #A32D2D; }
+
+/* ── Estado vacío ── */
+.empty {
+  text-align: center;
+  padding: 3rem 1rem;
+  color: #888;
+  font-size: 14px;
+}
+
+.empty-icon {
+  font-size: 36px;
+  display: block;
+  margin-bottom: 10px;
+}
+
+/* ── Modal ── */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+  padding: 1rem;
+}
+
+.modal {
+  background: #fff;
+  border-radius: 14px;
+  padding: 1.5rem;
+  width: 100%;
+  max-width: 420px;
+  border: 1px solid #ddd;
+}
+
+.modal h2 {
+  font-size: 17px;
+  font-weight: 500;
+  margin-bottom: 1.25rem;
+}
+
+.field {
+  margin-bottom: 1rem;
+}
+
+.field label {
+  display: block;
+  font-size: 13px;
+  color: #666;
+  margin-bottom: 5px;
+}
+
+.field input,
+.field select {
+  width: 100%;
+  padding: 9px 12px;
+  border: 1px solid #bbb;
+  border-radius: 8px;
+  background: #fff;
+  color: #111;
+  outline: none;
+  font-size: 14px;
+}
+
+.field input:focus,
+.field select:focus {
+  border-color: #185FA5;
+}
+
+.modal-actions {
+  display: flex;
+  gap: 10px;
+  justify-content: flex-end;
+  margin-top: 1.25rem;
+}
+
+/* ── Accesibilidad ── */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
 }
